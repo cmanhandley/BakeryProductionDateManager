@@ -9,6 +9,7 @@ bagel days - 12
 
 """
 import random
+from GoogleSheetLinker import GoogleSheetLinker
 
 class Product:
     def __init__(self, product=None, quantity=0, sell_by_date=0):
@@ -26,6 +27,7 @@ class Product:
         return self.sell_by_date
 
 def main():
+    linker = GoogleSheetLinker()
     print("Generating list of today's production...")
     #change for quantity (inclusive on both ends)
     lower_bound = 0
@@ -62,10 +64,16 @@ def main():
     # Add padding
     name_width = max_name_len + 2
 
+    """
     print(f"{'Name':<{name_width}} {'Quantity':<10} {'Sell by date'}")
 
     for product in products:
         print(f"{product.getProduct():<{name_width}} {product.getQuantity():<10} {product.getSellByDate()} days")
+    """
+    
+    linker.push(products)
+    df = linker.pull()
+    print(df)
 
 
 if __name__ == "__main__":

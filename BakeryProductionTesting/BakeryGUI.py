@@ -85,7 +85,7 @@ class BakeryGUI:
 
         # Buttons
         self.finish_btn = ttk.Button(self.root, text="Production Finished", command=self.finish_production)
-        self.finish_btn.grid(row=2, column=1, sticky="e", padx=10, pady=10)
+        self.finish_btn.grid(row=2, column=0, sticky="e", padx=10, pady=10)
 
         self.next_day_btn = ttk.Button(self.root, text="Next Day", command=self.next_day)
         self.next_day_btn.grid(row=2, column=0, sticky="w", padx=10, pady=10)

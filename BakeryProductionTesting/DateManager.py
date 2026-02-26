@@ -8,6 +8,9 @@ class InventoryQueue:
         self.queue = deque(queue_list, maxlen=shelf_life)
         self.pulled_today = 0
 
+    def total_inventory(self):
+        return sum(self.queue) + self.pulled_today
+
     def add_today(self, amount):
         if len(self.queue) == self.shelf_life:
             self.pulled_today = self.queue.popleft()

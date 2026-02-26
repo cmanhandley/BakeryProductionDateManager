@@ -1,2 +1,4 @@
 credentials.json
+--pycahche__/
+*.pyc
 *.json
